@@ -1,0 +1,249 @@
+/* CSS RESET */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove default list styles */
+ul, ol, li {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+}    
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+    
+/* A element that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+    
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%; /* img should never overflow past the available space*/
+  display: block; /* avoid blank bottom*/
+  height: auto;/*preserve aspect ratio*/
+}
+
+
+/* Remove built-in form typography styles */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* More space above the underline */
+a {
+  text-underline-offset: 0.2ex;
+}
+
+
+/*body *{
+    outline : 2px solid red ;
+}*/
+
+@font-face {
+    font-family: 'Satoshi-Variable';
+    src: local("Satoshi-Variable"),
+    url("Satoshi-Variable.woff2") format("woff2");
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: normal;
+  }
+
+@font-face {
+    font-family: 'Gambetta-Variable';
+    src: local("Gambetta-Variable"),
+    url("Gambetta-Variable.woff2") format("woff2");
+         font-weight: 300 900;
+         font-display: swap;
+         font-style: normal;
+  }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #b2b2a8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    padding: 2em;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slidein{
+    width: 100%;
+    height: 1px;
+    background: #3e3b36;
+    animation: line 3s linear forwards;
+}
+
+@keyframes line {
+    from {
+      left:0%;
+      width:0%;
+    }
+    to {
+      left:0%;
+      width:100%;
+    }
+  }
+  .pulser {
+    width: 30px;
+    height: 30px;
+    background: yellow;
+    border-radius: 50%;
+  }
+  
+  .pulser::after {
+    animation: pulse 1000ms cubic-bezier(0.9, 0.7, 0.5, 0.9) infinite;
+  }
+  
+  @keyframes pulse {
+    from {
+      opacity: 0;
+    }
+    to {
+      transform: scale(1.4);
+      opacity: 0.4;
+    }
+  }
+  
+  .pulser::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: blueviolet;
+    border-radius: 50%;
+    z-index: -1;
+  }
+.hr {
+    width: 100%;
+    height: 1px;
+    background: #3e3b36;
+}
+.reveal {
+    width: 500px;
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+}
+
+.reveal div {
+    position: absolute;
+    line-height: 1.8em;
+}
+
+.h1 {
+    font-size: 6.4em;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    font-family: "Gambetta-Variable";
+}
+
+.h1 span {
+    font-style: italic;
+    letter-spacing: 0.05em;
+}
+
+.secondary {
+    font-family: "Satoshi-Variable";
+}
+
+.p {
+    padding: 0.8em 0;
+    font-family: "Satoshi-Variable";
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.white-space {
+    width: 100%;
+    height: 200px;
+}
+
+.nav-item {
+    width: 240px;
+    border-radius: 0 0 40px 0;
+    margin: 0.6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.nav-item > div {
+    padding: 1em;
+    font-family: "Satoshi-Variable";
+    font-size: 14px;
+}
+
+.about {
+    background: #fcefdf;
+}
+
+.projects {
+    background: #db4c44;
+}
+
+.projects > div {
+    color: #fff;
+}
+
+.contact {
+    background: #e7a92b;
+}
+
+[class*="hide-"] {
+    opacity: 0;
+    transform: translateY(60px);/*remonte de 60px*/
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 1s cubic-bezier(.5, 0, 0, 1);
+}
+.hide-1 {
+    transition-delay: .3s;
+}
+.hide-2 {
+    transition-delay: .6s;
+}
+.hide-3 {
+    transition-delay: 0.9s;
+}
+.hide-4 {
+    transition-delay: 1.2s;
+}
+@media(max-width: 900px) {
+    .h1 {
+        font-size: 2em;
+    }
+    .p {
+        font-size: 8px;
+    }
+}
